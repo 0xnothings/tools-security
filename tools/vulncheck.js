@@ -51,6 +51,10 @@ const root = o._[0] || '.';
 const CODE_EXT = new Set(['.js', '.mjs', '.cjs', '.ts', '.tsx', '.jsx', '.php', '.py', '.rb', '.go', '.java']);
 
 function* walk(dir) {
+  let st;
+  try { st = statSync(dir); } catch { return; }
+  // A single file passed as the root must be scanned, not silently skipped.
+  if (st.isFile()) { yield dir; return; }
   let ents; try { ents = readdirSync(dir, { withFileTypes: true }); } catch { return; }
   for (const e of ents) {
     if (EXCLUDE.includes(e.name)) continue;
@@ -104,3 +108,7 @@ else {
   console.log(`\n${files} files | ${findings.length} findings (high ${c.HIGH}, medium ${c.MEDIUM}, low ${c.LOW})`);
   if (routeStats.length) console.log(`${routeStats.reduce((a, r) => a + r.routes, 0)} route definitions, ${routeStats.reduce((a, r) => a + r.unguarded, 0)} without inline auth middleware`);
 }
+
+// Exit contract: 0 clean, 1 findings. Without this the tool reported findings
+// and still exited 0, so it could not be used as a CI gate.
+if (findings.length) process.exitCode = 1;

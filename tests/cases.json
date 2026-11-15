@@ -1,0 +1,326 @@
+{
+  "note": "Per-tool output assertions. `node assertcheck.js --update` records a golden, `node assertcheck.js` verifies. Fixtures are written as UTF-8; fixtures_b64 carries raw bytes. Assertions that guard a bug which actually shipped are marked in the note field of that case.",
+  "cases": [
+    {
+      "tool": "cidr.js",
+      "args": [
+        "10.0.0.0/30"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_contains": [
+          "10.0.0.0/30",
+          "10.0.0.0 - 10.0.0.3",
+          "4 addresses"
+        ]
+      }
+    },
+    {
+      "tool": "cidr.js",
+      "args": [
+        "10.0.0.0/24",
+        "--split",
+        "26"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_contains": [
+          "10.0.0.0/26",
+          "10.0.0.64/26",
+          "10.0.0.128/26",
+          "10.0.0.192/26"
+        ]
+      }
+    },
+    {
+      "tool": "cidr.js",
+      "args": [
+        "10.0.0.0/24",
+        "--test",
+        "10.0.0.99"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_contains": [
+          "IN 10.0.0.0/24"
+        ]
+      }
+    },
+    {
+      "tool": "cidr.js",
+      "args": [],
+      "expect": {
+        "exit": 1,
+        "no_stack": true
+      }
+    },
+    {
+      "tool": "hashid.js",
+      "args": [
+        "--text",
+        "hello",
+        "--gen",
+        "md5"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_contains": [
+          "5d41402abc4b2a76b9719d911017c592"
+        ]
+      }
+    },
+    {
+      "tool": "hashid.js",
+      "args": [
+        "--text",
+        "hello",
+        "--gen",
+        "sha256"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_contains": [
+          "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"
+        ]
+      }
+    },
+    {
+      "tool": "hashid.js",
+      "args": [
+        "5d41402abc4b2a76b9719d911017c592"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_contains": [
+          "MD5"
+        ]
+      }
+    },
+    {
+      "tool": "hashid.js",
+      "args": [
+        "$2y$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_contains": [
+          "bcrypt"
+        ]
+      }
+    },
+    {
+      "tool": "payloadx.js",
+      "args": [
+        "encode",
+        "--in",
+        "<script>alert(1)</script>",
+        "--via",
+        "url"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_contains": [
+          "%3Cscript%3Ealert(1)%3C%2Fscript%3E"
+        ]
+      }
+    },
+    {
+      "tool": "payloadx.js",
+      "args": [
+        "encode",
+        "--in",
+        "abc",
+        "--via",
+        "base64"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_contains": [
+          "YWJj"
+        ]
+      }
+    },
+    {
+      "tool": "payloadx.js",
+      "args": [
+        "decode",
+        "--in",
+        "%3Cscript%3E",
+        "--via",
+        "url"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_contains": [
+          "<script>"
+        ]
+      }
+    },
+    {
+      "tool": "payloadx.js",
+      "args": [
+        "encode",
+        "--in",
+        "1 OR 1=1",
+        "--via",
+        "sqlcomment"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_contains": [
+          "1/**/OR/**/1=1"
+        ]
+      }
+    },
+    {
+      "tool": "jwtpeek.js",
+      "args": [
+        "eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdWIiOiIxMjM0NTY3ODkwIiwicm9sZSI6ImFkbWluIn0."
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_contains": [
+          "alg=none",
+          "role"
+        ],
+        "stdout_regex": [
+          "CRITICAL"
+        ]
+      }
+    },
+    {
+      "tool": "webfinger.js",
+      "args": [
+        "example.com"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_contains": [
+          "==="
+        ]
+      }
+    },
+    {
+      "tool": "headers.js",
+      "args": [
+        "example.com"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_regex": [
+          "grade [A-F]"
+        ]
+      }
+    },
+    {
+      "tool": "tlsinfo.js",
+      "args": [
+        "example.com"
+      ],
+      "expect": {
+        "exit": 0,
+        "stdout_contains": [
+          "example.com:443"
+        ],
+        "stdout_regex": [
+          "days left"
+        ]
+      }
+    },
+    {
+      "tool": "massparse.js",
+      "args": [
+        "{tmp}/n.xml"
+      ],
+      "fixtures": {
+        "n.xml": "<?xml version=\"1.0\"?><nmaprun><host><status state=\"up\"/><address addr=\"93.184.216.34\" addrtype=\"ipv4\"/><ports><port protocol=\"tcp\" portid=\"80\"><state state=\"open\"/><service name=\"http\" product=\"nginx\"/></port></ports></host></nmaprun>"
+      },
+      "expect": {
+        "exit": 0,
+        "stdout_contains": [
+          "nmap-xml",
+          "93.184.216.34",
+          "nginx"
+        ]
+      }
+    },
+    {
+      "tool": "massparse.js",
+      "args": [
+        "{tmp}/none.txt"
+      ],
+      "fixtures": {
+        "none.txt": "not a scan output\n"
+      },
+      "expect": {
+        "exit": 1,
+        "no_stack": true
+      }
+    },
+    {
+      "tool": "asnmap.js",
+      "args": [],
+      "expect": {
+        "exit": 1,
+        "no_stack": true
+      },
+      "note": "regression: the tool-local exit guard used to print a stack trace here"
+    },
+    {
+      "tool": "jwtforge.js",
+      "args": [],
+      "expect": {
+        "exit": 1,
+        "no_stack": true
+      },
+      "note": "regression: same guard bug"
+    },
+    {
+      "tool": "vulncheck.js",
+      "args": [
+        "{tmp}/app.js"
+      ],
+      "fixtures": {
+        "app.js": "const { execSync } = require('child_process');\napp.get('/r', (req,res) => { execSync('ls ' + req.query.d); });\n"
+      },
+      "expect": {
+        "exit": 1,
+        "stdout_contains": [
+          "command execution"
+        ]
+      }
+    },
+    {
+      "tool": "secretscan.js",
+      "args": [
+        "{tmp}/leak.js"
+      ],
+      "fixtures": {
+        "leak.js": "const AWS_KEY = 'AKIA3XJ7QZ2MNPKL4RTU';\nconst gh = 'ghp_9fK2mQ7vL3xR8nB5tY1wZ6cD4hJ0sA2eF7gH';\n"
+      },
+      "expect": {
+        "exit": 1,
+        "stdout_contains": [
+          "AWS Access Key ID",
+          "GitHub token"
+        ]
+      },
+      "note": "regression: the AWS rule used a capturing group, so only 'AKIA' matched and the entropy filter dropped the hit"
+    },
+    {
+      "tool": "secretscan.js",
+      "args": [
+        "{tmp}/clean.js"
+      ],
+      "fixtures": {
+        "clean.js": "const x = 1;\nconst s = 'not-a-secret';\n"
+      },
+      "expect": {
+        "exit": 0,
+        "stdout_contains": [
+          "0 findings"
+        ]
+      }
+    }
+  ]
+}

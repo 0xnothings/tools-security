@@ -118,3 +118,7 @@ else {
   findings.forEach((f) => c[f.severity]++);
   console.log(`\n${files} files scanned | ${findings.length} findings  (critical ${c.critical}, high ${c.high}, medium ${c.medium}, low ${c.low})`);
 }
+
+// Exit contract: 0 clean, 1 findings. Reporting a critical key and exiting 0
+// meant this could never gate a pipeline.
+if (findings.length) process.exitCode = 1;
