@@ -2,6 +2,8 @@
 
 A collection of zero-dependency Node.js security tools. Recon, web-app testing, credential hygiene, CVE intel, and audit helpers — every one runs with `node tools/<name>.js` and nothing but the Node standard library.
 
+**[Landing page](https://0xnothings.github.io) · [All four repos](https://github.com/0xnothings)**
+
 ```bash
 node tools/portscan.js 10.0.0.1 --ports 1-1024 --banner
 node tools/headers.js https://example.com
