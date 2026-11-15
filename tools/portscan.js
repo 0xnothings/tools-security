@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // portscan.js — Fast async TCP connect scanner with banner grabbing.
 // Copyright (c) 2026 0xnothings
 // @tool portscan

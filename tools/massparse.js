@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // massparse.js — normalize masscan/nmap/naabu output into one schema.
 // Copyright (c) 2026 0xnothings
 // @tool massparse

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // secretscan.js — scan files for hardcoded credentials and API keys.
 // Copyright (c) 2026 0xnothings
 // @tool secretscan
@@ -24,7 +25,7 @@ if (o.f.help) {
 }
 
 const RULES = [
-  ['AWS Access Key ID', /\b(AKIA|ASIA|ABIA|ACCA)[0-9A-Z]{16}\b/, 'critical'],
+  ['AWS Access Key ID', /\b(?:AKIA|ASIA|ABIA|ACCA)[0-9A-Z]{16}\b/, 'critical'],
   ['AWS Secret Key', /(?:aws)?_?(?:secret)?_?(?:access)?_?key['"]?\s*[:=]\s*['"]([A-Za-z0-9/+=]{40})['"]/i, 'critical'],
   ['GitHub token', /\bgh[pousr]_[A-Za-z0-9]{36,255}\b/, 'critical'],
   ['GitLab token', /\bglpat-[A-Za-z0-9_\-]{20,}\b/, 'critical'],
@@ -54,6 +55,10 @@ const root = o._[0] || '.';
 const LOOKS_LIKE_PLACEHOLDER = /(example|sample|dummy|placeholder|your[_-]?key|xxxx|changeme|redacted|fake|test123|<[^>]+>|\$\{|\{\{)/i;
 
 function* walk(dir) {
+  let st;
+  try { st = statSync(dir); } catch { return; }
+  // a single file passed as the root should be scanned, not silently skipped
+  if (st.isFile()) { yield dir; return; }
   let ents;
   try { ents = readdirSync(dir, { withFileTypes: true }); } catch { return; }
   for (const e of ents) {

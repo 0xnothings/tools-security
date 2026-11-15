@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // jwtforge.js — JWT construction and tampering toolkit.
 // Copyright (c) 2026 0xnothings
 // @tool jwtforge

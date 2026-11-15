@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // xssprobe.js — reflection-based XSS candidate finder.
 // Copyright (c) 2026 0xnothings
 // @tool xssprobe

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // headers.js — HTTP security header audit with grading.
 // Copyright (c) 2026 0xnothings
 // @tool headers

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // wordgen.js — targeted password/username wordlist generator from profile data.
 // Copyright (c) 2026 0xnothings
 // @tool wordgen

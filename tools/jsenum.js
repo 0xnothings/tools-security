@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // jsenum.js — mine JavaScript bundles for endpoints and secrets.
 // Copyright (c) 2026 0xnothings
 // @tool jsenum

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // dnsdump.js — full DNS record dump with reverse lookups.
 // Copyright (c) 2026 0xnothings
 // @tool dnsdump

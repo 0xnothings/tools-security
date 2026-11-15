@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // ratelimitmap.js — map rate-limit policy across many endpoints.
 // Copyright (c) 2026 0xnothings
 // @tool ratelimitmap

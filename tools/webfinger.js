@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // webfinger.js — passive technology fingerprinting from headers, cookies and body.
 // Copyright (c) 2026 0xnothings
 // @tool webfinger

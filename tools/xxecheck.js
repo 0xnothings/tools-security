@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // xxecheck.js — XXE tester for XML endpoints and file-upload wrappers.
 // Copyright (c) 2026 0xnothings
 // @tool xxecheck

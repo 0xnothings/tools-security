@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // crlfsplit.js — CRLF injection and HTTP response splitting tester.
 // Copyright (c) 2026 0xnothings
 // @tool crlfsplit

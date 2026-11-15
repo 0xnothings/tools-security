@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // svcaudit.js — TLS protocol and cipher weakness audit.
 // Copyright (c) 2026 0xnothings
 // @tool svcaudit

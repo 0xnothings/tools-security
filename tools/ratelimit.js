@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // ratelimit.js — auth rate-limit and lockout behaviour tester.
 // Copyright (c) 2026 0xnothings
 // @tool ratelimit

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // templateinject.js — SSTI probe for multiple template engines.
 // Copyright (c) 2026 0xnothings
 // @tool templateinject

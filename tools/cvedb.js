@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // cvedb.js — CVE intelligence lookup with NVD + CISA KEV + EPSS.
 // Copyright (c) 2026 0xnothings
 // @tool cvedb

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // payloadx.js — payload encoder/decoder toolkit.
 // Copyright (c) 2026 0xnothings
 // @tool payloadx

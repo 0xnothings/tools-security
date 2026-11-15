@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // takeover.js — subdomain takeover candidate detector.
 // Copyright (c) 2026 0xnothings
 // @tool takeover

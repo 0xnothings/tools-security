@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // dnshistory.js — passive DNS history from multiple keyless sources.
 // Copyright (c) 2026 0xnothings
 // @tool dnshistory

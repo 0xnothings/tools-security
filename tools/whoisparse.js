@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // whoisparse.js — structured WHOIS/RDAP parser.
 // Copyright (c) 2026 0xnothings
 // @tool whoisparse

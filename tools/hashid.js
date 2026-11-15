@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // hashid.js — identify and generate hashes.
 // Copyright (c) 2026 0xnothings
 // @tool hashid

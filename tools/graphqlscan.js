@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // graphqlscan.js — GraphQL endpoint introspection and exposure check.
 // Copyright (c) 2026 0xnothings
 // @tool graphqlscan

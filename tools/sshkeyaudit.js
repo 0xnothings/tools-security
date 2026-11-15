@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // sshkeyaudit.js — SSH key hygiene audit.
 // Copyright (c) 2026 0xnothings
 // @tool sshkeyaudit

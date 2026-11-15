@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // corscheck.js — CORS misconfiguration scanner.
 // Copyright (c) 2026 0xnothings
 // @tool corscheck

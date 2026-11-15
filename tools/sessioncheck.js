@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // sessioncheck.js — cookie and session security audit from live responses.
 // Copyright (c) 2026 0xnothings
 // @tool sessioncheck

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // internetdb.js — Shodan InternetDB keyless host lookup.
 // Copyright (c) 2026 0xnothings
 // @tool internetdb

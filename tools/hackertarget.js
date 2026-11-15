@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // hackertarget.js — keyless HackerTarget API queries.
 // Copyright (c) 2026 0xnothings
 // @tool hackertarget

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // robtex.js — passive DNS and WHOIS correlation without API keys.
 // Copyright (c) 2026 0xnothings
 // @tool robtex

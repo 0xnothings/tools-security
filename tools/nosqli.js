@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // nosqli.js — NoSQL injection tester for MongoDB-backed endpoints.
 // Copyright (c) 2026 0xnothings
 // @tool nosqli

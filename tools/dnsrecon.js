@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // dnsrecon.js — DNS reconnaissance bundle.
 // Copyright (c) 2026 0xnothings
 // @tool dnsrecon

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // paramfuzz.js — parameter discovery and reflection tester.
 // Copyright (c) 2026 0xnothings
 // @tool paramfuzz

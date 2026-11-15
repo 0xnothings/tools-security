@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // subdomain.js — DNS subdomain brute-forcer with wildcard detection.
 // Copyright (c) 2026 0xnothings
 // @tool subdomain

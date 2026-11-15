@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // sqli.js — error/time-based SQL injection indicator scanner.
 // Copyright (c) 2026 0xnothings
 // @tool sqli

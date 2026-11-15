@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // vulncheck.js — local web-app hardening audit (no network).
 // Copyright (c) 2026 0xnothings
 // @tool vulncheck

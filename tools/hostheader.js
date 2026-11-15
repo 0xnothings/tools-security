@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // hostheader.js — Host header injection tester.
 // Copyright (c) 2026 0xnothings
 // @tool hostheader

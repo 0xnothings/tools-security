@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // pwnedpass.js — k-anonymity breach check against Pwned Passwords.
 // Copyright (c) 2026 0xnothings
 // @tool pwnedpass

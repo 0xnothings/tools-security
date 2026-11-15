@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // cidr.js — IP/CIDR math toolkit.
 // Copyright (c) 2026 0xnothings
 // @tool cidr

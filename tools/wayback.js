@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // wayback.js — archived URL harvester via the Wayback CDX API.
 // Copyright (c) 2026 0xnothings
 // @tool wayback

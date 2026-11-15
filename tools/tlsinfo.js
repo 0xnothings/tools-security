@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // tlsinfo.js — TLS certificate and protocol inspector.
 // Copyright (c) 2026 0xnothings
 // @tool tlsinfo

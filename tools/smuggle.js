@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // smuggle.js — HTTP request smuggling probes with timing evidence.
 // Copyright (c) 2026 0xnothings
 // @tool smuggle

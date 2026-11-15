@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // sshaudit.js — SSH server configuration and handshake audit.
 // Copyright (c) 2026 0xnothings
 // @tool sshaudit

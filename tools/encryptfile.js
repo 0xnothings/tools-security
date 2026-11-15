@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // encryptfile.js — AES-256-GCM file encryption with scrypt KDF.
 // Copyright (c) 2026 0xnothings
 // @tool encryptfile

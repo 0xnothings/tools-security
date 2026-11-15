@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // cracker.js — dictionary hash cracker with mutation rules and resume.
 // Copyright (c) 2026 0xnothings
 // @tool cracker

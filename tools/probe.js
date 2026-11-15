@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // probe.js — bulk HTTP prober (httpx-lite).
 // Copyright (c) 2026 0xnothings
 // @tool probe

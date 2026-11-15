@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // ipintel.js — IP geolocation, ASN and reverse DNS with provider fallback.
 // Copyright (c) 2026 0xnothings
 // @tool ipintel

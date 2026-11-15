@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // statusfuzz.js — HTTP method and auth-boundary matrix builder.
 // Copyright (c) 2026 0xnothings
 // @tool statusfuzz

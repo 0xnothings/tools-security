@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // wsprobe.js — WebSocket handshake and message-layer probe.
 // Copyright (c) 2026 0xnothings
 // @tool wsprobe

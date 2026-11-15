@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // redirectcheck.js — open redirect scanner.
 // Copyright (c) 2026 0xnothings
 // @tool redirectcheck

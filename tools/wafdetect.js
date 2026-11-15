@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // wafdetect.js — WAF and CDN detection.
 // Copyright (c) 2026 0xnothings
 // @tool wafdetect

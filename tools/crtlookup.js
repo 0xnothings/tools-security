@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // crtlookup.js — certificate transparency subdomain enumeration via crt.sh.
 // Copyright (c) 2026 0xnothings
 // @tool crtlookup

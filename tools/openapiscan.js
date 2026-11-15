@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // openapiscan.js — OpenAPI/Swagger spec security review.
 // Copyright (c) 2026 0xnothings
 // @tool openapiscan

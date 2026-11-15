@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // techstack.js — dependency CVE lookup by ecosystem query.
 // Copyright (c) 2026 0xnothings
 // @tool techstack

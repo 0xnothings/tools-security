@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // cspreporter.js — CSP parser, scorer and policy hardener.
 // Copyright (c) 2026 0xnothings
 // @tool cspreporter

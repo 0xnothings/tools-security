@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // dorkgen.js — generate ready-to-click search dork URLs for a domain.
 // Copyright (c) 2026 0xnothings
 // @tool dorkgen

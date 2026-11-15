@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // svcfinger.js — banner-grab and fingerprint services on open TCP ports.
 // Copyright (c) 2026 0xnothings
 // @tool svcfinger

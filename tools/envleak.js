@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // envleak.js — exposed config/secret file discovery.
 // Copyright (c) 2026 0xnothings
 // @tool envleak

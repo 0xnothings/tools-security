@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // covertunnel.js — DNS/ICMP tunnel feasibility tester.
 // Copyright (c) 2026 0xnothings
 // @tool covertunnel

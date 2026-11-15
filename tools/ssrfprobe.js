@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // ssrfprobe.js — SSRF indicator tester with OOB-friendly payloads.
 // Copyright (c) 2026 0xnothings
 // @tool ssrfprobe

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // asnmap.js — ASN to announced CIDR ranges and IP to ASN resolution.
 // Copyright (c) 2026 0xnothings
 // @tool asnmap

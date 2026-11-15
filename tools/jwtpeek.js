@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // jwtpeek.js — Decode, inspect and lint JSON Web Tokens.
 // Copyright (c) 2026 0xnothings
 // @tool jwtpeek

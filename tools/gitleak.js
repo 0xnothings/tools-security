@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // gitleak.js — scan a git history for dangling secrets in diffs.
 // Copyright (c) 2026 0xnothings
 // @tool gitleak

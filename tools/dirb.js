@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // dirb.js — HTTP path brute-forcer with soft-404 calibration.
 // Copyright (c) 2026 0xnothings
 // @tool dirb

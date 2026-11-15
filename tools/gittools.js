@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // gittools.js — detect and reconstruct exposed .git directories.
 // Copyright (c) 2026 0xnothings
 // @tool gittools
