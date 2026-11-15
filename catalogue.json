@@ -1,0 +1,387 @@
+[
+  {
+    "link": "tools/cidr.js",
+    "name": "cidr",
+    "desc": "Expand, collapse, split and test IPv4/IPv6 networks; check whether an IP is inside a range",
+    "usage": "node tools/cidr.js 10.0.0.0/24 --split 26 --json",
+    "tags": [
+      "security",
+      "network",
+      "ipam"
+    ]
+  },
+  {
+    "link": "tools/corscheck.js",
+    "name": "corscheck",
+    "desc": "Probe endpoints for CORS origin reflection, wildcard + credentials, and null-origin bypass",
+    "usage": "node tools/corscheck.js https://api.example.com --paths /,/api/user --json",
+    "tags": [
+      "security",
+      "web",
+      "cors"
+    ]
+  },
+  {
+    "link": "tools/cvedb.js",
+    "name": "cvedb",
+    "desc": "Fetch CVE detail from NVD, exploit status from CISA KEV, and exploitation likelihood from EPSS",
+    "usage": "node tools/cvedb.js CVE-2024-3400 CVE-2023-34362 --json",
+    "tags": [
+      "security",
+      "cve",
+      "intel"
+    ]
+  },
+  {
+    "link": "tools/dirb.js",
+    "name": "dirb",
+    "desc": "HTTP path/directory brute-forcer with automatic soft-404 detection and extension expansion",
+    "usage": "node tools/dirb.js https://example.com --wordlist paths.txt --ext php,html,bak --json",
+    "tags": [
+      "security",
+      "web",
+      "recon"
+    ]
+  },
+  {
+    "link": "tools/dnsdump.js",
+    "name": "dnsdump",
+    "desc": "Dump A/AAAA/MX/NS/TXT/SOA/CNAME/CAA/SRV records; decode SPF+DMARC; optional PTR and zone-transfer test",
+    "usage": "node tools/dnsdump.js example.com --json",
+    "tags": [
+      "security",
+      "dns",
+      "recon"
+    ]
+  },
+  {
+    "link": "tools/envleak.js",
+    "name": "envleak",
+    "desc": "Check hosts for exposed .env, .git, .svn, backup archives, phpinfo and CI config files",
+    "usage": "node tools/envleak.js https://example.com --json",
+    "tags": [
+      "security",
+      "web",
+      "exposure"
+    ]
+  },
+  {
+    "link": "tools/gitleak.js",
+    "name": "gitleak",
+    "desc": "Walk `git log -p` and flag secrets that were committed (even if later removed) plus .env/.pem blobs",
+    "usage": "node tools/gitleak.js ./repo --since 1.year --json",
+    "tags": [
+      "security",
+      "git",
+      "secrets"
+    ]
+  },
+  {
+    "link": "tools/graphqlscan.js",
+    "name": "graphqlscan",
+    "desc": "Detect live GraphQL endpoints, test introspection exposure, and list queries/mutations/subscriptions",
+    "usage": "node tools/graphqlscan.js https://api.example.com/graphql --json",
+    "tags": [
+      "security",
+      "api",
+      "graphql"
+    ]
+  },
+  {
+    "link": "tools/hashid.js",
+    "name": "hashid",
+    "desc": "Identify hash type by format/prefix/length, or generate md5/sha1/sha256/sha512 for input",
+    "usage": "node tools/hashid.js '$2y$10$abc...' --gen sha256 --text hello",
+    "tags": [
+      "security",
+      "crypto",
+      "forensics"
+    ]
+  },
+  {
+    "link": "tools/headers.js",
+    "name": "headers",
+    "desc": "Audit HTTP security headers (HSTS/CSP/XFO/Referrer-Policy...) and grade the response",
+    "usage": "node tools/headers.js https://example.com --json",
+    "tags": [
+      "security",
+      "web",
+      "audit"
+    ]
+  },
+  {
+    "link": "tools/hostheader.js",
+    "name": "hostheader",
+    "desc": "Test Host / X-Forwarded-Host / X-Forwarded-For handling for cache poisoning and reset-poisoning risk",
+    "usage": "node tools/hostheader.js https://example.com/reset --json",
+    "tags": [
+      "security",
+      "web",
+      "cachepoisoning"
+    ]
+  },
+  {
+    "link": "tools/jsenum.js",
+    "name": "jsenum",
+    "desc": "Extract API paths, hidden routes, domains, cloud buckets and secret-like strings from JS files",
+    "usage": "node tools/jsenum.js https://example.com/app.js --json",
+    "tags": [
+      "security",
+      "recon",
+      "js"
+    ]
+  },
+  {
+    "link": "tools/jwtpeek.js",
+    "name": "jwtpeek",
+    "desc": "Decode JWT header/payload, flag alg=none, missing expiry, weak claims, and HMAC-crackable secrets",
+    "usage": "node tools/jwtpeek.js eyJhbGci... --wordlist secrets.txt",
+    "tags": [
+      "security",
+      "auth",
+      "jwt"
+    ]
+  },
+  {
+    "link": "tools/openapiscan.js",
+    "name": "openapiscan",
+    "desc": "Fetch an OpenAPI spec and report auth coverage, sensitive endpoints, and unauthenticated operations",
+    "usage": "node tools/openapiscan.js https://api.example.com/openapi.json --json",
+    "tags": [
+      "security",
+      "api",
+      "openapi"
+    ]
+  },
+  {
+    "link": "tools/paramfuzz.js",
+    "name": "paramfuzz",
+    "desc": "Probe a URL with candidate parameters to find hidden/reflected/reachable ones",
+    "usage": "node tools/paramfuzz.js https://example.com/search --wordlist params.txt --reflect",
+    "tags": [
+      "security",
+      "web",
+      "fuzzing"
+    ]
+  },
+  {
+    "link": "tools/payloadx.js",
+    "name": "payloadx",
+    "desc": "Encode/decode payloads for filters: url, double-url, base64, hex, unicode, html-entity, sql-comment, leet",
+    "usage": "node tools/payloadx.js encode --in \"<script>alert(1)</script>\" --via url,unicode --json",
+    "tags": [
+      "security",
+      "payload",
+      "encoding"
+    ]
+  },
+  {
+    "link": "tools/portscan.js",
+    "name": "portscan",
+    "desc": "Async TCP connect port scanner with service banner grab and JSON/CSV output",
+    "usage": "node tools/portscan.js 10.0.0.1 --ports 1-1024 --timeout 800 --banner",
+    "tags": [
+      "security",
+      "recon",
+      "network"
+    ]
+  },
+  {
+    "link": "tools/probe.js",
+    "name": "probe",
+    "desc": "Probe many hosts at once: status, title, server, tech, TLS expiry, redirect chain — CSV/JSON out",
+    "usage": "node tools/probe.js hosts.txt --concurrency 50 --json",
+    "tags": [
+      "security",
+      "recon",
+      "http"
+    ]
+  },
+  {
+    "link": "tools/ratelimit.js",
+    "name": "ratelimit",
+    "desc": "Sequentially probe a login/OTP endpoint to measure throttling, lockout and Retry-After behaviour",
+    "usage": "node tools/ratelimit.js https://site.com/api/login --field email --value you@x.com --attempts 15",
+    "tags": [
+      "security",
+      "auth",
+      "ratelimit"
+    ]
+  },
+  {
+    "link": "tools/redirectcheck.js",
+    "name": "redirectcheck",
+    "desc": "Test URL parameters for open-redirect behaviour with a payload matrix and 3xx/Location evidence",
+    "usage": "node tools/redirectcheck.js \"https://site.com/login?next=1\" --json",
+    "tags": [
+      "security",
+      "web",
+      "redirect"
+    ]
+  },
+  {
+    "link": "tools/robtex.js",
+    "name": "robtex",
+    "desc": "Pull RDAP registration data plus reverse-IP co-hosted domains for infrastructure mapping",
+    "usage": "node tools/robtex.js example.com --json",
+    "tags": [
+      "security",
+      "osint",
+      "passivedns"
+    ]
+  },
+  {
+    "link": "tools/secretscan.js",
+    "name": "secretscan",
+    "desc": "Scan source trees for hardcoded secrets: AWS/GCP/Stripe/Slack keys, private keys, JWTs, DB URLs",
+    "usage": "node tools/secretscan.js ./src --json --exclude node_modules,.git",
+    "tags": [
+      "security",
+      "secrets",
+      "audit"
+    ]
+  },
+  {
+    "link": "tools/sqli.js",
+    "name": "sqli",
+    "desc": "Parametric SQLi triage: error signatures, boolean differential, and time-delay probes with evidence",
+    "usage": "node tools/sqli.js \"https://site.com/item?id=1\" --delay 5 --json",
+    "tags": [
+      "security",
+      "web",
+      "sqli"
+    ]
+  },
+  {
+    "link": "tools/ssrfprobe.js",
+    "name": "ssrfprobe",
+    "desc": "Inject internal/loopback URLs into params to spot SSRF: timing, error text and metadata echoes",
+    "usage": "node tools/ssrfprobe.js \"https://site.com/fetch?url=1\" --json",
+    "tags": [
+      "security",
+      "web",
+      "ssrf"
+    ]
+  },
+  {
+    "link": "tools/statusfuzz.js",
+    "name": "statusfuzz",
+    "desc": "Build a route x method status matrix (no-auth vs bogus-token) to find open endpoints",
+    "usage": "node tools/statusfuzz.js https://api.example.com --paths-file routes.txt --json",
+    "tags": [
+      "security",
+      "api",
+      "accesscontrol"
+    ]
+  },
+  {
+    "link": "tools/subdomain.js",
+    "name": "subdomain",
+    "desc": "Concurrent DNS subdomain brute-forcer with wildcard detection and JSON output",
+    "usage": "node tools/subdomain.js example.com --wordlist words.txt --concurrency 100",
+    "tags": [
+      "security",
+      "recon",
+      "dns"
+    ]
+  },
+  {
+    "link": "tools/takeover.js",
+    "name": "takeover",
+    "desc": "Resolve subdomains, match response bodies against 40+ dangling-service fingerprints, report CNAME target",
+    "usage": "node tools/takeover.js subdomains.txt --concurrency 20 --json",
+    "tags": [
+      "security",
+      "recon",
+      "takeover"
+    ]
+  },
+  {
+    "link": "tools/techstack.js",
+    "name": "techstack",
+    "desc": "Query the OSV.dev API for known vulnerabilities affecting a package+version across ecosystems",
+    "usage": "node tools/techstack.js --pkg lodash --eco npm --ver 4.17.20 --json",
+    "tags": [
+      "security",
+      "supplychain",
+      "cve"
+    ]
+  },
+  {
+    "link": "tools/tlsinfo.js",
+    "name": "tlsinfo",
+    "desc": "Inspect a host's TLS certificate: subject, SANs, issuer, expiry countdown, protocol version",
+    "usage": "node tools/tlsinfo.js example.com:443 --json",
+    "tags": [
+      "security",
+      "tls",
+      "recon"
+    ]
+  },
+  {
+    "link": "tools/vulncheck.js",
+    "name": "vulncheck",
+    "desc": "Static audit of a web project: dangerous sinks, missing auth checks, insecure randoms, upload handling",
+    "usage": "node tools/vulncheck.js ./src --json",
+    "tags": [
+      "security",
+      "sast",
+      "audit"
+    ]
+  },
+  {
+    "link": "tools/wafdetect.js",
+    "name": "wafdetect",
+    "desc": "Identify WAF/CDN by headers, cookies and blocked-payload behaviour; report likely bypass posture",
+    "usage": "node tools/wafdetect.js https://example.com --json",
+    "tags": [
+      "security",
+      "recon",
+      "waf"
+    ]
+  },
+  {
+    "link": "tools/wayback.js",
+    "name": "wayback",
+    "desc": "Harvest historical URLs for a domain from the Wayback CDX index, filtered and deduped by path",
+    "usage": "node tools/wayback.js example.com --filter js,php,json --limit 5000 --json",
+    "tags": [
+      "security",
+      "recon",
+      "osint"
+    ]
+  },
+  {
+    "link": "tools/webfinger.js",
+    "name": "webfinger",
+    "desc": "Passive tech fingerprint: server, framework, CMS, JS libs, analytics, CDN, WAF",
+    "usage": "node tools/webfinger.js https://example.com --json",
+    "tags": [
+      "security",
+      "recon",
+      "fingerprint"
+    ]
+  },
+  {
+    "link": "tools/wordgen.js",
+    "name": "wordgen",
+    "desc": "Generate context-aware wordlists (names/dates/company/leet/mutations) for authorised recovery testing",
+    "usage": "node tools/wordgen.js --name \"Budi Santoso\" --nick budi --year 1998 --domain acme.id --out words.txt",
+    "tags": [
+      "security",
+      "wordlist",
+      "osint"
+    ]
+  },
+  {
+    "link": "tools/xssprobe.js",
+    "name": "xssprobe",
+    "desc": "Send a canary into parameters/headers and report reflected contexts that can break out",
+    "usage": "node tools/xssprobe.js \"https://site.com/?q=1\" --json",
+    "tags": [
+      "security",
+      "web",
+      "xss"
+    ]
+  }
+]
