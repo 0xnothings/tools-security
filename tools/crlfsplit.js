@@ -4,6 +4,8 @@
 // @desc Test header and parameter injection points for CRLF injection / HTTP response splitting with evidence capture
 // @usage node tools/crlfsplit.js https://target/redirect?url=FUZZ --json
 // @tags security,web,injection
+import net from 'node:net';
+import tls from 'node:tls';
 import { args, get, num, flag, die, inputLines, table } from '../_lib.js';
 
 const o = args(process.argv.slice(2));
@@ -57,23 +59,65 @@ const PAYLOADS = [
 ];
 
 function buildUrl(input, payload) {
-  if (input.includes('FUZZ')) return input.replace(/FUZZ/g, encodeURIComponent(payload).replace(/%25/g, '%').replace(/%250d/gi, '%250d'));
-  const u = input.includes('?') ? `${input}&crlfprobe=` : `${input}?crlfprobe=`;
-  return u + encodeURIComponent(payload).replace(/%250d/gi, '%250d');
+  // Raw CRLF payloads must stay literal so they reach the socket unmodified;
+  // the %0d%0a-style payloads are already encoded and pass through verbatim.
+  const inject = (base) => base.replace(/FUZZ/g, payload.replace(/ /g, '%20'));
+  if (input.includes('FUZZ')) return inject(input);
+  return `${input}${input.includes('?') ? '&' : '?'}crlfprobe=${payload.replace(/ /g, '%20')}`;
 }
 
 async function send(url, headers) {
-  const ctl = new AbortController();
-  const t = setTimeout(() => ctl.abort(), timeout);
-  try {
-    const r = await fetch(url, { headers: { 'user-agent': 'crlfsplit/1.0', ...(headers || {}) }, signal: ctl.signal, redirect: 'manual' });
-    const body = await r.text();
-    const hdrs = {};
-    r.headers.forEach((v, k) => { hdrs[k.toLowerCase()] = v; });
-    return { status: r.status, headers: hdrs, body: body.slice(0, 800), raw_status: r.status, error: null };
-  } catch (e) {
-    return { error: e.name === 'AbortError' ? 'timeout' : (e.message || 'request failed') };
-  } finally { clearTimeout(t); }
+  // Raw sockets: fetch() rejects control characters in the URL, which is exactly
+  // the payload class a CRLF test needs to send.
+  let parsed;
+  try { parsed = new URL(url); } catch { return { error: 'invalid url' }; }
+  const useTls = parsed.protocol === 'https:';
+  const port = Number(parsed.port) || (useTls ? 443 : 80);
+  const pathWithQuery = `${parsed.pathname || '/'}${parsed.search || ''}`;
+  const headLines = [
+    `GET ${pathWithQuery} HTTP/1.1`,
+    `Host: ${parsed.hostname}`,
+    'User-Agent: crlfsplit/1.0',
+    ...Object.entries(headers || {}).map(([k, v]) => `${k}: ${v}`),
+    'Connection: close',
+    '', '',
+  ];
+  const raw = headLines.join('\r\n');
+
+  return new Promise((resolve) => {
+    const chunks = [];
+    let done = false;
+    const fin = (err) => {
+      if (done) return;
+      done = true;
+      clearTimeout(timer);
+      try { sock.destroy(); } catch { /* ignore */ }
+      const text = Buffer.concat(chunks).toString('latin1');
+      const headEnd = text.indexOf('\r\n\r\n');
+      const headBlock = headEnd >= 0 ? text.slice(0, headEnd) : text;
+      const body = headEnd >= 0 ? text.slice(headEnd + 4) : '';
+      const linesOut = headBlock.split('\r\n');
+      const status = Number((linesOut[0] || '').match(/HTTP\/1\.[01]\s+(\d{3})/)?.[1] || 0);
+      const hdrs = {};
+      for (const line of linesOut.slice(1)) {
+        const i = line.indexOf(':');
+        if (i > 0) {
+          const k = line.slice(0, i).trim().toLowerCase();
+          const v = line.slice(i + 1).trim();
+          hdrs[k] = hdrs[k] ? `${hdrs[k]}, ${v}` : v;
+        }
+      }
+      resolve({ status, headers: hdrs, body: body.slice(0, 800), len: body.length, raw_head: headBlock.slice(0, 600), error: err });
+    };
+    let sock;
+    const onConnect = () => { try { sock.write(raw); } catch { fin('write failed'); } };
+    if (useTls) sock = tls.connect({ host: parsed.hostname, port, servername: parsed.hostname, rejectUnauthorized: false, timeout }, onConnect);
+    else sock = net.connect({ host: parsed.hostname, port }, onConnect);
+    const timer = setTimeout(() => fin('timeout'), timeout);
+    sock.on('data', (c) => { chunks.push(c); if (Buffer.concat(chunks).length > 65536) fin(null); });
+    sock.on('error', (e) => fin(e.code || e.message));
+    sock.on('close', () => fin(null));
+  });
 }
 
 function verdictFor(baseline, res, payload) {
