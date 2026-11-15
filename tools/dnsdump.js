@@ -6,7 +6,7 @@
 // @usage node tools/dnsdump.js example.com --json
 // @tags security,dns,recon
 import dns from 'node:dns';
-import { args, num, flag, die, inputLines, table } from '../_lib.js';
+import { args, num, flag, die, inputLines, table, get } from '../_lib.js';
 
 const o = args(process.argv.slice(2));
 if (o.f.help) {

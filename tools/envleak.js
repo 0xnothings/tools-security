@@ -5,7 +5,7 @@
 // @desc Check hosts for exposed .env, .git, .svn, backup archives, phpinfo and CI config files
 // @usage node tools/envleak.js https://example.com --json
 // @tags security,web,exposure
-import { args, num, flag, die, inputLines, table } from '../_lib.js';
+import { args, num, flag, die, inputLines, table, get } from '../_lib.js';
 
 const o = args(process.argv.slice(2));
 if (o.f.help) {

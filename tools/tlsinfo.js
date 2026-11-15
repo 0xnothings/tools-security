@@ -6,7 +6,7 @@
 // @usage node tools/tlsinfo.js example.com:443 --json
 // @tags security,tls,recon
 import tls from 'node:tls';
-import { args, num, flag, die, inputLines, table } from '../_lib.js';
+import { args, num, flag, die, inputLines, table, get } from '../_lib.js';
 
 const o = args(process.argv.slice(2));
 if (o.f.help) {

@@ -5,7 +5,7 @@
 // @desc Test Host / X-Forwarded-Host / X-Forwarded-For handling for cache poisoning and reset-poisoning risk
 // @usage node tools/hostheader.js https://example.com/reset --json
 // @tags security,web,cachepoisoning
-import { args, num, flag, die, inputLines, table } from '../_lib.js';
+import { args, num, flag, die, inputLines, table, get } from '../_lib.js';
 
 const o = args(process.argv.slice(2));
 if (o.f.help) {
