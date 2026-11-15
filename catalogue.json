@@ -1,5 +1,17 @@
 [
   {
+    "link": "tools/asnmap.js",
+    "name": "asnmap",
+    "desc": "Map ASNs to their announced CIDR ranges (RIPEstat/BGPView) and resolve which ASN owns an IP",
+    "usage": "node tools/asnmap.js AS15169 --json",
+    "tags": [
+      "security",
+      "recon",
+      "network",
+      "osint"
+    ]
+  },
+  {
     "link": "tools/cidr.js",
     "name": "cidr",
     "desc": "Expand, collapse, split and test IPv4/IPv6 networks; check whether an IP is inside a range",
@@ -19,6 +31,63 @@
       "security",
       "web",
       "cors"
+    ]
+  },
+  {
+    "link": "tools/covertunnel.js",
+    "name": "covertunnel",
+    "desc": "Measure whether a resolver forwards arbitrary subdomains and what DNS/ICMP tunnel throughput and payload capacity it allows",
+    "usage": "node tools/covertunnel.js example.com --json",
+    "tags": [
+      "security",
+      "network",
+      "tunneling",
+      "dns"
+    ]
+  },
+  {
+    "link": "tools/cracker.js",
+    "name": "cracker",
+    "desc": "Dictionary hash cracker for md5/sha1/sha256/sha512/sha3 with rule mutations, resume checkpoints and progress reporting",
+    "usage": "node tools/cracker.js --hash 5f4dcc3b5aa765d61d8327deb882cf99 --wordlist rockyou.txt --rules --json",
+    "tags": [
+      "security",
+      "passwords",
+      "cracking"
+    ]
+  },
+  {
+    "link": "tools/crlfsplit.js",
+    "name": "crlfsplit",
+    "desc": "Test header and parameter injection points for CRLF injection / HTTP response splitting with evidence capture",
+    "usage": "node tools/crlfsplit.js https://target/redirect?url=FUZZ --json",
+    "tags": [
+      "security",
+      "web",
+      "injection"
+    ]
+  },
+  {
+    "link": "tools/crtlookup.js",
+    "name": "crtlookup",
+    "desc": "Enumerate subdomains from certificate transparency logs (crt.sh + certspotter fallback)",
+    "usage": "node tools/crtlookup.js example.com --json",
+    "tags": [
+      "security",
+      "recon",
+      "osint",
+      "dns"
+    ]
+  },
+  {
+    "link": "tools/cspreporter.js",
+    "name": "cspreporter",
+    "desc": "Parse a Content-Security-Policy (live or from a file), score it, list weaknesses and emit a tightened policy",
+    "usage": "node tools/cspreporter.js https://example.com --json",
+    "tags": [
+      "security",
+      "web",
+      "headers"
     ]
   },
   {
@@ -55,6 +124,52 @@
     ]
   },
   {
+    "link": "tools/dnshistory.js",
+    "name": "dnshistory",
+    "desc": "Passive DNS history: merge historical name->IP records from keyless sources, dedup by (name, ip, first_seen)",
+    "usage": "node tools/dnshistory.js example.com --json",
+    "tags": [
+      "security",
+      "recon",
+      "dns",
+      "osint"
+    ]
+  },
+  {
+    "link": "tools/dnsrecon.js",
+    "name": "dnsrecon",
+    "desc": "DNS recon bundle: zone transfer, recursion, wildcard detection, DNSSEC presence and DNS-rebinding feasibility",
+    "usage": "node tools/dnsrecon.js example.com --json",
+    "tags": [
+      "security",
+      "dns",
+      "recon",
+      "network"
+    ]
+  },
+  {
+    "link": "tools/dorkgen.js",
+    "name": "dorkgen",
+    "desc": "Generate a categorised list of Google/Bing dork URLs for a domain (exposed files, panels, secrets, listings)",
+    "usage": "node tools/dorkgen.js example.com --category panels --json",
+    "tags": [
+      "security",
+      "recon",
+      "osint"
+    ]
+  },
+  {
+    "link": "tools/encryptfile.js",
+    "name": "encryptfile",
+    "desc": "Encrypt or decrypt a file with AES-256-GCM and a scrypt-derived key, with integrity verification and password rotation",
+    "usage": "node tools/encryptfile.js enc secret.txt --out secret.bin",
+    "tags": [
+      "security",
+      "crypto",
+      "files"
+    ]
+  },
+  {
     "link": "tools/envleak.js",
     "name": "envleak",
     "desc": "Check hosts for exposed .env, .git, .svn, backup archives, phpinfo and CI config files",
@@ -77,6 +192,17 @@
     ]
   },
   {
+    "link": "tools/gittools.js",
+    "name": "gittools",
+    "desc": "Detect an exposed .git directory and reconstruct source from loose objects, pack files and refs",
+    "usage": "node tools/gittools.js https://target/.git/ --json",
+    "tags": [
+      "security",
+      "web",
+      "source-disclosure"
+    ]
+  },
+  {
     "link": "tools/graphqlscan.js",
     "name": "graphqlscan",
     "desc": "Detect live GraphQL endpoints, test introspection exposure, and list queries/mutations/subscriptions",
@@ -85,6 +211,18 @@
       "security",
       "api",
       "graphql"
+    ]
+  },
+  {
+    "link": "tools/hackertarget.js",
+    "name": "hackertarget",
+    "desc": "Query the keyless HackerTarget API: hostsearch, reverseiplookup, dnslookup, geoip, pagelinks and more",
+    "usage": "node tools/hackertarget.js hostsearch example.com --json",
+    "tags": [
+      "security",
+      "recon",
+      "osint",
+      "dns"
     ]
   },
   {
@@ -121,6 +259,29 @@
     ]
   },
   {
+    "link": "tools/internetdb.js",
+    "name": "internetdb",
+    "desc": "Keyless Shodan InternetDB lookup by IP: open ports, hostnames, CPEs, tags and known CVEs",
+    "usage": "node tools/internetdb.js 8.8.8.8 --json",
+    "tags": [
+      "security",
+      "recon",
+      "osint"
+    ]
+  },
+  {
+    "link": "tools/ipintel.js",
+    "name": "ipintel",
+    "desc": "IP geolocation, ASN, org and reverse DNS across multiple keyless providers with automatic fallback",
+    "usage": "node tools/ipintel.js 8.8.8.8 --json",
+    "tags": [
+      "security",
+      "recon",
+      "osint",
+      "network"
+    ]
+  },
+  {
     "link": "tools/jsenum.js",
     "name": "jsenum",
     "desc": "Extract API paths, hidden routes, domains, cloud buckets and secret-like strings from JS files",
@@ -132,6 +293,18 @@
     ]
   },
   {
+    "link": "tools/jwtforge.js",
+    "name": "jwtforge",
+    "desc": "Forge and tamper JWTs: none-alg, RS256->HS256 confusion, claim mutation, kid path traversal, signature stripping",
+    "usage": "node tools/jwtforge.js <token> --attack none --json",
+    "tags": [
+      "security",
+      "web",
+      "jwt",
+      "auth"
+    ]
+  },
+  {
     "link": "tools/jwtpeek.js",
     "name": "jwtpeek",
     "desc": "Decode JWT header/payload, flag alg=none, missing expiry, weak claims, and HMAC-crackable secrets",
@@ -140,6 +313,29 @@
       "security",
       "auth",
       "jwt"
+    ]
+  },
+  {
+    "link": "tools/massparse.js",
+    "name": "massparse",
+    "desc": "Parse masscan/nmap/naabu output (XML, JSON, greppable, plain) into one normalized scan schema",
+    "usage": "node tools/massparse.js scan.xml --json",
+    "tags": [
+      "security",
+      "recon",
+      "network",
+      "parsing"
+    ]
+  },
+  {
+    "link": "tools/nosqli.js",
+    "name": "nosqli",
+    "desc": "Test JSON/query endpoints for NoSQL injection: operator injection, array coercion, $where and $regex probes",
+    "usage": "node tools/nosqli.js https://target/api/login --json",
+    "tags": [
+      "security",
+      "web",
+      "injection"
     ]
   },
   {
@@ -187,6 +383,18 @@
     ]
   },
   {
+    "link": "tools/postexploit.js",
+    "name": "postexploit",
+    "desc": "Enumerate Linux privilege-escalation surfaces from a collected rootfs listing or live commands: SUID, sudo, caps, cron, PATH",
+    "usage": "node tools/postexploit.js --root /mnt/target --json",
+    "tags": [
+      "security",
+      "post-exploitation",
+      "linux",
+      "privesc"
+    ]
+  },
+  {
     "link": "tools/probe.js",
     "name": "probe",
     "desc": "Probe many hosts at once: status, title, server, tech, TLS expiry, redirect chain — CSV/JSON out",
@@ -198,6 +406,17 @@
     ]
   },
   {
+    "link": "tools/pwnedpass.js",
+    "name": "pwnedpass",
+    "desc": "Check passwords against the Pwned Passwords range API using k-anonymity — only a 5-char SHA-1 prefix leaves the machine",
+    "usage": "node tools/pwnedpass.js --password 'hunter2' --json",
+    "tags": [
+      "security",
+      "passwords",
+      "osint"
+    ]
+  },
+  {
     "link": "tools/ratelimit.js",
     "name": "ratelimit",
     "desc": "Sequentially probe a login/OTP endpoint to measure throttling, lockout and Retry-After behaviour",
@@ -205,6 +424,17 @@
     "tags": [
       "security",
       "auth",
+      "ratelimit"
+    ]
+  },
+  {
+    "link": "tools/ratelimitmap.js",
+    "name": "ratelimitmap",
+    "desc": "Discover per-path rate-limit thresholds, header conventions and lockout behaviour, then emit a pacing plan",
+    "usage": "node tools/ratelimitmap.js https://target --paths /api/login,/api/search --json",
+    "tags": [
+      "security",
+      "web",
       "ratelimit"
     ]
   },
@@ -242,6 +472,29 @@
     ]
   },
   {
+    "link": "tools/sessioncheck.js",
+    "name": "sessioncheck",
+    "desc": "Audit session cookies from live responses: flags, prefixes, entropy estimate, cross-domain scope, __Host- misuse",
+    "usage": "node tools/sessioncheck.js https://example.com --json",
+    "tags": [
+      "security",
+      "web",
+      "session",
+      "auth"
+    ]
+  },
+  {
+    "link": "tools/smuggle.js",
+    "name": "smuggle",
+    "desc": "Probe for HTTP request smuggling (CL.TE / TE.CL / TE.TE) using raw sockets and timing differentials",
+    "usage": "node tools/smuggle.js example.com --port 443 --json",
+    "tags": [
+      "security",
+      "web",
+      "http"
+    ]
+  },
+  {
     "link": "tools/sqli.js",
     "name": "sqli",
     "desc": "Parametric SQLi triage: error signatures, boolean differential, and time-delay probes with evidence",
@@ -250,6 +503,30 @@
       "security",
       "web",
       "sqli"
+    ]
+  },
+  {
+    "link": "tools/sshaudit.js",
+    "name": "sshaudit",
+    "desc": "Audit sshd_config text and a live SSH handshake for weak algorithms, insecure options and policy gaps",
+    "usage": "node tools/sshaudit.js /etc/ssh/sshd_config --json",
+    "tags": [
+      "security",
+      "ssh",
+      "audit",
+      "network"
+    ]
+  },
+  {
+    "link": "tools/sshkeyaudit.js",
+    "name": "sshkeyaudit",
+    "desc": "Audit SSH keys: fingerprints, type/strength, passphrase presence, authorized_keys anomalies, duplicates and weak keys",
+    "usage": "node tools/sshkeyaudit.js ~/.ssh --json",
+    "tags": [
+      "security",
+      "ssh",
+      "audit",
+      "keys"
     ]
   },
   {
@@ -286,6 +563,28 @@
     ]
   },
   {
+    "link": "tools/svcaudit.js",
+    "name": "svcaudit",
+    "desc": "Audit a TLS endpoint for legacy protocols, weak ciphers, missing forward secrecy and certificate chain problems",
+    "usage": "node tools/svcaudit.js example.com:443 --json",
+    "tags": [
+      "security",
+      "tls",
+      "audit"
+    ]
+  },
+  {
+    "link": "tools/svcfinger.js",
+    "name": "svcfinger",
+    "desc": "Banner-grab open TCP ports and fingerprint the service behind them (HTTP/TLS/SMTP/FTP/SSH with correct verbs)",
+    "usage": "node tools/svcfinger.js 10.0.0.1 --ports 22,80,443 --json",
+    "tags": [
+      "security",
+      "recon",
+      "network"
+    ]
+  },
+  {
     "link": "tools/takeover.js",
     "name": "takeover",
     "desc": "Resolve subdomains, match response bodies against 40+ dangling-service fingerprints, report CNAME target",
@@ -305,6 +604,18 @@
       "security",
       "supplychain",
       "cve"
+    ]
+  },
+  {
+    "link": "tools/templateinject.js",
+    "name": "templateinject",
+    "desc": "Server-side template injection probe using math-expression oracles for Jinja2, Twig, Freemarker, Velocity, Thymeleaf, Handlebars, ERB and more",
+    "usage": "node tools/templateinject.js \"https://target/search?q=FUZZ\" --json",
+    "tags": [
+      "security",
+      "web",
+      "injection",
+      "ssti"
     ]
   },
   {
@@ -363,6 +674,18 @@
     ]
   },
   {
+    "link": "tools/whoisparse.js",
+    "name": "whoisparse",
+    "desc": "Parse WHOIS (port 43) and RDAP into structured JSON: registrar, dates, status, nameservers, contacts",
+    "usage": "node tools/whoisparse.js example.com --json",
+    "tags": [
+      "security",
+      "recon",
+      "osint",
+      "domains"
+    ]
+  },
+  {
     "link": "tools/wordgen.js",
     "name": "wordgen",
     "desc": "Generate context-aware wordlists (names/dates/company/leet/mutations) for authorised recovery testing",
@@ -374,6 +697,17 @@
     ]
   },
   {
+    "link": "tools/wsprobe.js",
+    "name": "wsprobe",
+    "desc": "Test a WebSocket endpoint: unauthenticated upgrade, origin validation bypass, subprotocol injection and message echo",
+    "usage": "node tools/wsprobe.js wss://target/socket --json",
+    "tags": [
+      "security",
+      "web",
+      "websocket"
+    ]
+  },
+  {
     "link": "tools/xssprobe.js",
     "name": "xssprobe",
     "desc": "Send a canary into parameters/headers and report reflected contexts that can break out",
@@ -382,6 +716,18 @@
       "security",
       "web",
       "xss"
+    ]
+  },
+  {
+    "link": "tools/xxecheck.js",
+    "name": "xxecheck",
+    "desc": "Test XML parsers for XXE: in-band entity expansion, parameter entities, OOB callbacks and SVG/XLSX upload wrappers",
+    "usage": "node tools/xxecheck.js https://target/api/import --json",
+    "tags": [
+      "security",
+      "web",
+      "injection",
+      "xxe"
     ]
   }
 ]
